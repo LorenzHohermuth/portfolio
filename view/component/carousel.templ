@@ -6,17 +6,33 @@ type CarouselEntry struct {
 	Text string
 }
 
-templ Carousel(elm CarouselEntry) {
+func add(a int, b int) int {
+	return a + b
+}
+
+templ Carousel(elm []CarouselEntry , index int) {
 	<div>
-		<div class="flex items-center gap-x-4">
-			<button type="button" class="h-32 w-8 font-black rounded bg-black/20 border-none"> &lt; </button>
-			<div class="relative text-center">
-				<img src={elm.ImgPath} class="h-36 w-64 rounded object-cover"/>
-				<div class="bg-gradient-to-t from-black/80 absolute bottom-0 left-0 h-36 w-64 rounded"></div>
-				<p class="absolute text-neutral-300 bottom-0.5 left-5">{elm.Title}</p>
+		<div class="flex items-center gap-x-13">
+
+			<div class="relative z-10">
+				<button class="top-1/2 left-0 border-none bg-transparent p-0 absolute -translate-y-1/2 bg-black	">
+					<img src={elm[index - 1].ImgPath} class="h-28 w-52 rounded object-cover"/>
+				</button>
 			</div>
-			<button type="button" class="h-32 w-8 font-black rounded bg-black/20 border-none"> &gt; </button>
+
+			<div class="relative text-center z-20">
+				<img src={elm[index].ImgPath} class="h-36 w-64 rounded object-cover"/>
+				<div class="bg-gradient-to-t from-black/30 absolute bottom-0 left-0 h-36 w-64 rounded"></div>
+				<p class="absolute text-neutral-300 bottom-0.5 left-5">{elm[index].Title}</p>
+			</div>
+
+			<div class="relative z-0">
+				<button class="top-1/2 right-0 border-none bg-transparent p-0 absolute -translate-y-1/2	">
+					<img src={elm[index + 1].ImgPath} class="h-28 w-52 rounded object-cover"/>
+				</button>
+			</div>
+
 		</div>
-		<p class="text-center font-thin">{elm.Text}</p>
+		<p class="text-center font-thin">{elm[index].Text}</p>
 	</div>
 }

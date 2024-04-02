@@ -13,7 +13,7 @@ import "bytes"
 import "github.com/lorenzhohermuth/portfolio/view/layout"
 import "github.com/lorenzhohermuth/portfolio/view/component"
 
-func ShowHome() templ.Component {
+func ShowHome(arr []component.CarouselEntry) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -36,7 +36,7 @@ func ShowHome() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = component.Carousel(component.CarouselEntry{"/static/test.jpg", "This is a Tree", "I like Trees"}).Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = component.Carousel(arr, 1).Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
