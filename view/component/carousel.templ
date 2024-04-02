@@ -1,0 +1,22 @@
+package component
+
+type CarouselEntry struct {
+	ImgPath string
+	Title string
+	Text string
+}
+
+templ Carousel(elm CarouselEntry) {
+	<div>
+		<div class="flex items-center gap-x-4">
+			<button type="button" class="h-32 w-8 font-black rounded bg-black/20 border-none"> &lt; </button>
+			<div class="relative text-center">
+				<img src={elm.ImgPath} class="h-36 w-64 rounded object-cover"/>
+				<div class="bg-gradient-to-t from-black/80 absolute bottom-0 left-0 h-36 w-64 rounded"></div>
+				<p class="absolute text-neutral-300 bottom-0.5 left-5">{elm.Title}</p>
+			</div>
+			<button type="button" class="h-32 w-8 font-black rounded bg-black/20 border-none"> &gt; </button>
+		</div>
+		<p class="text-center font-thin">{elm.Text}</p>
+	</div>
+}

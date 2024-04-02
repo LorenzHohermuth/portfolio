@@ -1,0 +1,43 @@
+package layout
+
+templ Base() {
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>Portfolio Lorenz Hohermuth</title>
+			<script src="https://cdn.jsdelivr.net/npm/@unocss/runtime"></script>
+	</head>
+	<body class="m-0 p-0 font-mono font-black">
+
+	<nav class="flex w-full">
+		<div class="bg-orange-500 w-35 flex justify-center">
+			<img src="/static/robot.png" height="70"/>
+		</div>
+		<div class="container bg-[#3331ee]">
+				<ul class="flex items-center justify-center h-full gap-x-4 p-0 list-none m-0">
+						<li><a class="no-underline text-[#ff5cdb]" href="#home">Home</a></li>
+						<li><a class="no-underline text-[#ff5cdb]" href="#projects">Projects</a></li>
+						<li><a class="no-underline text-[#ff5cdb]" href="#contact">Work</a></li>
+				</ul>
+		</div>
+	</nav>
+
+	<main>
+		{ children... }
+	</main>
+
+	<footer class="flex text-xs font-thin">
+			<div class="bg-gray-500 text-gray-400 p-2 w-1/2 flex justify-center items-center">
+				<p>&copy; 2024 Lorenz Hohermuth All rights reserved.</p>
+			</div>
+			<div class="bg-gray-800 w-1/2 text-neutral-300 flex justify-center items-center">
+				<p> -- <a class=" text-neutral-300" href="https://github.com/lorenzhohermuth">GitHUB</a> -- </p>
+			</div>
+	</footer>
+
+	</body>
+	</html>
+
+}
