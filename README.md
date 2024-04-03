@@ -12,4 +12,4 @@ But really I just not like JS.
 - Frontend Framework: HTMX
 
 ## To Run
-- in root folder 'go run main.go'
+- in root folder `go run cmd/main.go`
