@@ -10,3 +10,6 @@ But really I just not like JS.
 - Html templating: Templ
 - Css: Uno Css
 - Frontend Framework: HTMX
+
+## To Run
+- in root folder 'go run main.go'
