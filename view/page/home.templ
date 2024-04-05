@@ -3,14 +3,14 @@ package page
 import "github.com/lorenzhohermuth/portfolio/view/layout"
 import "github.com/lorenzhohermuth/portfolio/view/component"
 
-templ ShowHome(arr []component.CarouselEntry) {
+templ ShowHome(arr []component.CarouselEntry, index int) {
 	@layout.Base(){
 		<div class="h-80 bg-[#cdb4f6] flex justify-center items-center">
 			Intro
 		</div>
 
 		<div class="h-80 bg-[#ff5cdb] flex justify-center items-center">
-			@component.Carousel(arr, 1)
+			@component.Carousel(arr, index)
 		</div>
 
 		<div class="h-80 bg-[#1733d2] flex justify-center items-center">

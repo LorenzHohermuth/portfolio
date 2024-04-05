@@ -16,8 +16,13 @@ type CarouselEntry struct {
 	Text    string
 }
 
-func add(a int, b int) int {
-	return a + b
+func getEntry(arr []CarouselEntry, index int) CarouselEntry {
+	newIndex := index
+	for newIndex < 0 {
+		newIndex += len(arr)
+	}
+	newIndex = newIndex % len(arr)
+	return arr[newIndex]
 }
 
 func Carousel(elm []CarouselEntry, index int) templ.Component {
@@ -33,14 +38,14 @@ func Carousel(elm []CarouselEntry, index int) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div><div class=\"flex items-center gap-x-13\"><div class=\"relative z-10\"><button class=\"top-1/2 left-0 border-none bg-transparent p-0 absolute -translate-y-1/2 bg-black	\"><img src=\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div id=\"carousel-parent\"><div class=\"flex items-center gap-x-13\"><div class=\"relative z-10\"><button class=\"top-1/2 left-0 border-none bg-transparent p-0 absolute -translate-y-1/2 bg-black	\" hx-post=\"/carousel/previous\" hx-trigger=\"click\" hx-target=\"#carousel-parent\"><img src=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var2 string
-		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(elm[index-1].ImgPath)
+		templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(getEntry(elm, index-1).ImgPath)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/component/carousel.templ`, Line: 19, Col: 37}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/component/carousel.templ`, Line: 28, Col: 47}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 		if templ_7745c5c3_Err != nil {
@@ -51,9 +56,9 @@ func Carousel(elm []CarouselEntry, index int) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var3 string
-		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(elm[index].ImgPath)
+		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(getEntry(elm, index).ImgPath)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/component/carousel.templ`, Line: 24, Col: 32}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/component/carousel.templ`, Line: 33, Col: 42}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
@@ -64,22 +69,22 @@ func Carousel(elm []CarouselEntry, index int) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var4 string
-		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(elm[index].Title)
+		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(getEntry(elm, index).Title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/component/carousel.templ`, Line: 26, Col: 76}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/component/carousel.templ`, Line: 35, Col: 86}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p></div><div class=\"relative z-0\"><button class=\"top-1/2 right-0 border-none bg-transparent p-0 absolute -translate-y-1/2	\"><img src=\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p></div><div class=\"relative z-0\"><button class=\"top-1/2 right-0 border-none bg-transparent p-0 absolute -translate-y-1/2	\" hx-post=\"/carousel/next\" hx-trigger=\"click\" hx-target=\"#carousel-parent\"><img src=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var5 string
-		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(elm[index+1].ImgPath)
+		templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(getEntry(elm, index+1).ImgPath)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/component/carousel.templ`, Line: 31, Col: 37}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/component/carousel.templ`, Line: 44, Col: 47}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 		if templ_7745c5c3_Err != nil {
@@ -90,9 +95,9 @@ func Carousel(elm []CarouselEntry, index int) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var6 string
-		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(elm[index].Text)
+		templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(getEntry(elm, index).Text)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/component/carousel.templ`, Line: 36, Col: 51}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/component/carousel.templ`, Line: 49, Col: 61}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 		if templ_7745c5c3_Err != nil {

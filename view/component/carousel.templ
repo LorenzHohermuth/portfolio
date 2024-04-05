@@ -6,33 +6,46 @@ type CarouselEntry struct {
 	Text string
 }
 
-func add(a int, b int) int {
-	return a + b
+func getEntry(arr []CarouselEntry, index int) CarouselEntry {
+	newIndex := index
+	for newIndex < 0 {
+		newIndex += len(arr)
+	}
+	newIndex = newIndex % len(arr)
+	return arr[newIndex]
 }
 
 templ Carousel(elm []CarouselEntry , index int) {
-	<div>
+	<div id="carousel-parent">
 		<div class="flex items-center gap-x-13">
 
 			<div class="relative z-10">
-				<button class="top-1/2 left-0 border-none bg-transparent p-0 absolute -translate-y-1/2 bg-black	">
-					<img src={elm[index - 1].ImgPath} class="h-28 w-52 rounded object-cover"/>
+				<button class="top-1/2 left-0 border-none bg-transparent p-0 absolute -translate-y-1/2 bg-black	"
+					hx-post="/carousel/previous"
+					hx-trigger="click"
+					hx-target="#carousel-parent"
+					>
+					<img src={getEntry(elm, index - 1).ImgPath} class="h-28 w-52 rounded object-cover"/>
 				</button>
 			</div>
 
 			<div class="relative text-center z-20">
-				<img src={elm[index].ImgPath} class="h-36 w-64 rounded object-cover"/>
+				<img src={getEntry(elm, index).ImgPath} class="h-36 w-64 rounded object-cover"/>
 				<div class="bg-gradient-to-t from-black/30 absolute bottom-0 left-0 h-36 w-64 rounded"></div>
-				<p class="absolute text-neutral-300 bottom-0.5 left-5">{elm[index].Title}</p>
+				<p class="absolute text-neutral-300 bottom-0.5 left-5">{getEntry(elm, index).Title}</p>
 			</div>
 
 			<div class="relative z-0">
-				<button class="top-1/2 right-0 border-none bg-transparent p-0 absolute -translate-y-1/2	">
-					<img src={elm[index + 1].ImgPath} class="h-28 w-52 rounded object-cover"/>
+				<button class="top-1/2 right-0 border-none bg-transparent p-0 absolute -translate-y-1/2	"
+					hx-post="/carousel/next"
+					hx-trigger="click"
+					hx-target="#carousel-parent"
+					>
+					<img src={getEntry(elm, index + 1).ImgPath} class="h-28 w-52 rounded object-cover"/>
 				</button>
 			</div>
 
 		</div>
-		<p class="text-center font-thin">{elm[index].Text}</p>
+		<p class="text-center font-thin">{getEntry(elm, index).Text}</p>
 	</div>
 }
