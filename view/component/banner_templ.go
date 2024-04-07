@@ -25,7 +25,7 @@ func Banner(text string, icon string, colorBg string, colorText string) templ.Co
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		var templ_7745c5c3_Var2 = []any{"col-span-3 text-center py-3", fmt.Sprintf("bg-[%s]", colorBg), fmt.Sprintf("text-[%s]", colorText)}
+		var templ_7745c5c3_Var2 = []any{"col-span-3 text-center py-3 overflow-hidden", fmt.Sprintf("bg-[%s]", colorBg), fmt.Sprintf("text-[%s]", colorText)}
 		templ_7745c5c3_Err = templ.RenderCSSItems(ctx, templ_7745c5c3_Buffer, templ_7745c5c3_Var2...)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
@@ -43,7 +43,7 @@ func Banner(text string, icon string, colorBg string, colorText string) templ.Co
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" style=\"scrollbar-width: none; -ms-overflow-style: none;\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -55,7 +55,7 @@ func Banner(text string, icon string, colorBg string, colorText string) templ.Co
 			var templ_7745c5c3_Var4 string
 			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(text)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/component/banner.templ`, Line: 9, Col: 9}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/component/banner.templ`, Line: 10, Col: 9}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
@@ -73,7 +73,7 @@ func Banner(text string, icon string, colorBg string, colorText string) templ.Co
 				var templ_7745c5c3_Var5 string
 				templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(icon)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/component/banner.templ`, Line: 13, Col: 10}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/component/banner.templ`, Line: 14, Col: 10}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 				if templ_7745c5c3_Err != nil {
