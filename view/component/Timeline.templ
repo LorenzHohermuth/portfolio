@@ -1,0 +1,26 @@
+package component
+
+import "time"
+
+type Event struct {
+	DateStart time.Time
+	DateEnd time.Time
+	Title string
+}
+
+templ Timeline(evts []Event) {
+	<div class="text-white mr-4">
+		for i, v := range evts {
+			<div class="flex items-center">
+				<div class="h-1 w-3 m-0 mr-4 rounded-full bg-white"/>
+				<div>
+					<p class="m-0 mb-1">{v.Title}</p>
+					<p class="m-0 text-sm">{v.DateEnd.Format("02 January 2006")} - {v.DateEnd.Format("02 January 2006")}</p>
+				</div>
+			</div>
+			if i + 1 < len(evts) {
+				<div class="h-10 w-1 rounded-full bg-white ml-1"/>
+			}
+		}
+	</div>
+}
