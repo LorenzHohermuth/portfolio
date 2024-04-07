@@ -7,9 +7,10 @@ But really I just not like JS.
 
 ## Stack
 - Language: Golang
-- Html templating: Templ
+- HTML templating: Templ
 - Css: Uno Css
 - Frontend Framework: HTMX
+- HTTP Framework: Echo
 
 ## To Run
 - in root folder `go run cmd/main.go`
