@@ -47,7 +47,7 @@ func Banner(text string, icon string, colorBg string, colorText string) templ.Co
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		for i, x := 0, 10; i < x; i++ {
+		for i, x := 0, 50; i < x; i++ {
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"inline\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err

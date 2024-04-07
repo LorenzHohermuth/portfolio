@@ -5,7 +5,7 @@ import "fmt"
 templ Banner(text string, icon string, colorBg string, colorText string) {
 <div class={"col-span-3 text-center py-3 overflow-hidden", fmt.Sprintf("bg-[%s]", colorBg), fmt.Sprintf("text-[%s]", colorText)}
 	style="scrollbar-width: none; -ms-overflow-style: none;">
-		for i, x:= 0, 10 ; i < x ; i++ {
+		for i, x:= 0, 50 ; i < x ; i++ {
 			<div class="inline">
 				{text}
 			</div>
