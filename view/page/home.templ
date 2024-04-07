@@ -5,16 +5,78 @@ import "github.com/lorenzhohermuth/portfolio/view/component"
 
 templ ShowHome(arr []component.CarouselEntry, index int) {
 	@layout.Base(){
-		<div class="h-80 bg-[#cdb4f6] flex justify-center items-center">
-			Intro
+		<div class="bg-[#cdb4f6] pb-8 pt-1">
+			<div class="text-white py-2 pr-3 pl-6 bg-[#6266ec] my-4 mr-4 rounded-r-4">
+				<p>
+					 About this Website 
+				</p>
+				<p>
+					The Purpose of this website is to try a new Stack with GO and HTMX with the goal of using a Minimal amount of Code.
+					And to refresh my old Portfolio to a newer State.
+				</p>
+			</div>
+
+			<div class="my-4">
+				@component.Banner("Stack", "", "#6266ec", "#b9f301" )
+			</div>
+
+			<div class="px-4">
+				
+				<div class="grid grid-cols-3 gap-1 gap-y-2 font-sm text-sm">
+
+					<div class="col-span-2 rounded bg-[#ff5cdb] flex justify-center items-center py-3 px-6">
+						Language
+					</div>
+					<div class="rounded bg-[#ff5cdb] flex justify-center items-center py-3 px-6">
+						GO
+					</div>
+
+					<div class="text-white rounded bg-[#6266ec] flex justify-center items-center py-3 px-6">
+						HTMX
+					</div>
+					<div class="text-white col-span-2 rounded bg-[#6266ec] flex justify-center items-center py-3 px-6">
+						Frontend Famework
+					</div>
+					
+					<div class="col-span-2 rounded bg-[#b9f301] flex justify-center items-center py-3 px-6">
+						CSS Famework
+					</div>
+					<div class="rounded bg-[#b9f301] flex justify-center items-center py-3 px-6">
+						Uno CSS
+					</div>
+
+					<div class="text-white rounded bg-[#6266ec] flex justify-center items-center py-3 px-6">
+						Templ
+					</div>
+					<div class="text-white col-span-2 rounded bg-[#6266ec] flex justify-center items-center py-3 px-6">
+						HTML Templating
+					</div>
+
+					<div class="text-white col-span-2 rounded bg-[#3331ee] flex justify-center items-center py-3 px-6">
+						HTTP Famework
+					</div>
+					<div class="text-white rounded bg-[#3331ee] flex justify-center items-center py-3 px-6">
+						Echo
+					</div>
+					
+				</div>
+			</div>
 		</div>
 
-		<div class="h-80 bg-[#ff5cdb] flex justify-center items-center">
-			@component.Carousel(arr, index)
+		<div class="bg-[#ff5cdb] pb-7">
+			@component.Banner("Porjects", "󰣪", "#b9f301", "#ff5cdb")
+			<div class="flex justify-center items-center mt-10">
+				@component.Carousel(arr, index)
+			</div>
 		</div>
 
-		<div class="h-80 bg-[#1733d2] flex justify-center items-center">
-			Work
+		<div class="h-80 bg-[#fee7c5]">
+			@component.Banner("Work", "", "#1733d2", "#ff5cdb")
+			<div class="p-3 h-full">
+				<div class="bg-[#1733d2] h-full w-full rounded-8 flex justify-center items-center">
+					Work
+				</div>
+			</div>
 		</div>
 	}
 }

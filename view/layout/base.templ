@@ -10,7 +10,13 @@ templ Base() {
 			<script src="https://cdn.jsdelivr.net/npm/@unocss/runtime"></script>
 			<script src="https://unpkg.com/htmx.org@1.9.11" integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0" crossorigin="anonymous"></script>
 	</head>
-	<body class="m-0 p-0 font-mono font-black">
+	<style>
+		@font-face {
+			font-family: UbuntuMono;
+			src: url(static/UbuntuMono/UbuntuMonoNerdFont-Bold.ttf)
+		}
+	</style>
+	<body class="m-0 p-0 font-black" style="font-family: UbuntuMono">
 
 	<nav class="flex w-full">
 		<div class="bg-orange-500 w-35 flex justify-center">
