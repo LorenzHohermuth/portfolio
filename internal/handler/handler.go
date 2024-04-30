@@ -10,15 +10,10 @@ import (
 
 type Homehandler struct {
 	Index int
+	Entrys []component.CarouselEntry
 }
 
 func(h Homehandler) HandleUserShow(ctx echo.Context) error {
-	entrys := []component.CarouselEntry{
-		{"/static/test.jpg", "This is a Tree" , "I like Trees"},
-		{"/static/flower.jpeg", "This is a Flower" , "I like Flowers"},
-		{"/static/paris.jpg", "This is the Eiffel Tower" , "I not like Franc"},
-	}
-
 	events := []component.Event{
 		{time.Now(), time.Now(), "Title 1"},
 		{time.Now(), time.Now(), "Title 2"},
@@ -27,20 +22,16 @@ func(h Homehandler) HandleUserShow(ctx echo.Context) error {
 		{time.Now(), time.Now(), "Title 5"},
 	}
 	
-	return render(ctx, page.ShowHome(entrys, h.Index, events))
+	return render(ctx, page.ShowHome(h.Entrys, h.Index, events))
 }
 
 type HtmxCarouselHandler struct {
 	Index *int
 	Direction int
+	Entrys []component.CarouselEntry
 }
 
 func(h HtmxCarouselHandler) HandlerCarouselUpdate(ctx echo.Context) error {
-	entrys := []component.CarouselEntry{
-		{"/static/test.jpg", "This is a Tree" , "I like Trees"},
-		{"/static/flower.jpeg", "This is a Flower" , "I like Flowers"},
-		{"/static/paris.jpg", "This is the Eiffel Tower" , "I not like Franc"},
-	}
 	*h.Index += h.Direction
-	return render(ctx, component.Carousel(entrys, int(*h.Index)))
+	return render(ctx, component.Carousel(h.Entrys, int(*h.Index)))
 }
