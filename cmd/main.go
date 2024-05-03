@@ -4,9 +4,14 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/lorenzhohermuth/portfolio/internal/handler"
 	"github.com/lorenzhohermuth/portfolio/internal/mdparser"
+	"github.com/gofor-little/env"
 )
 
 func main() {
+	envErr := env.Load(".env")
+	if envErr != nil {
+		panic(envErr)
+	}
 	app := echo.New()
 	index := 0
 
