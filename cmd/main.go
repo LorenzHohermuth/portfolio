@@ -1,10 +1,10 @@
 package main
 
 import (
+	"github.com/gofor-little/env"
 	"github.com/labstack/echo/v4"
 	"github.com/lorenzhohermuth/portfolio/internal/handler"
-	"github.com/lorenzhohermuth/portfolio/internal/mdparser"
-	"github.com/gofor-little/env"
+	"github.com/lorenzhohermuth/portfolio/view/component"
 )
 
 func main() {
@@ -15,11 +15,11 @@ func main() {
 	app := echo.New()
 	index := 0
 
-	projects := mdparser.GetProjects()
-	h := handler.Homehandler{index, projects}
+	var projects []component.CarouselEntry
+	h := handler.Homehandler{Index: index, Entrys:  &projects}
 	app.GET("/", h.HandleUserShow)
-	app.POST("/carousel/next", handler.HtmxCarouselHandler{&index, 1, projects}.HandlerCarouselUpdate)
-	app.POST("/carousel/previous", handler.HtmxCarouselHandler{&index, -1, projects}.HandlerCarouselUpdate)
+	app.POST("/carousel/next", handler.HtmxCarouselHandler{Index: &index,Direction:  1,Entrys:  &projects}.HandlerCarouselUpdate)
+	app.POST("/carousel/previous", handler.HtmxCarouselHandler{Index: &index, Direction:   -1, Entrys:  &projects}.HandlerCarouselUpdate)
 	app.Static("/static", "assets")
 
 	app.Start(":3030")

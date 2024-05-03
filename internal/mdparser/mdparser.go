@@ -2,8 +2,6 @@ package mdparser
 
 import (
 	"context"
-	"fmt"
-	"os"
 	"regexp"
 	"strings"
 
@@ -15,15 +13,13 @@ const pathProjects string = "projects.md"
 const pathWork string = "work.md"
 
 func GetProjects() []component.CarouselEntry {
-	github.FetchGHFile(context.Background(), "/cmd")
+	projectsFile, ghErr := github.FetchGHFile(context.Background(), "/interactive/projects.md")
+	if ghErr != nil {
+		panic(ghErr)
+	}
 	components := make([]component.CarouselEntry, 0)
 
-	dat, err := os.ReadFile("interactive/projects.md")
-	if err != nil {
-		panic(err)
-	}
-
-	lines := strings.Split(string(dat), "\n")
+	lines := strings.Split(projectsFile, "\n")
 	tmpTitle := ""
 	tmpText := ""
 	tmpImg := ""
@@ -34,7 +30,6 @@ func GetProjects() []component.CarouselEntry {
 		}
 	}
 
-	fmt.Println(components)
 	return components
 }
 

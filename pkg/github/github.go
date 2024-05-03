@@ -54,13 +54,7 @@ func FetchGHFile(ctx context.Context, path string) (string, error){
 
 func fetchGithub(ctx context.Context, path string) (*github.RepositoryContent, error) {
 	client := github.NewClient(getAuthToken())
-	fileContent, repoCont, res, err := client.Repositories.GetContents(ctx, owner, repo, path, nil)
-	//fmt.Printf("content : %#v\n", fileContent)
-	fmt.Printf("repoContent : %#v\n", repoCont)
-	if len(repoCont) > 0 {
-		fmt.Println("file : ", repoCont[0].GetName())
-	}
-	fmt.Printf("response : %#v\n\n", res)
+	fileContent, _, _, err := client.Repositories.GetContents(ctx, owner, repo, path, nil)
 	return fileContent, err
 }
 
