@@ -1,8 +1,6 @@
 package handler
 
 import (
-	"time"
-
 	"github.com/labstack/echo/v4"
 	"github.com/lorenzhohermuth/portfolio/internal/mdparser"
 	"github.com/lorenzhohermuth/portfolio/view/component"
@@ -14,15 +12,8 @@ type Homehandler struct {
 	Entrys *[]component.CarouselEntry
 }
 
-func(h Homehandler) HandleUserShow(ctx echo.Context) error {
-	events := []component.Event{
-		{time.Now(), time.Now(), "Title 1"},
-		{time.Now(), time.Now(), "Title 2"},
-		{time.Now(), time.Now(), "Title 3"},
-		{time.Now(), time.Now(), "Title 4"},
-		{time.Now(), time.Now(), "Title 5"},
-	}
-
+func(h Homehandler) HandleShowHome(ctx echo.Context) error {
+	events := mdparser.GetWork()
 	*h.Entrys = mdparser.GetProjects()
 	
 	return render(ctx, page.ShowHome(*h.Entrys, h.Index, events))

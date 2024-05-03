@@ -17,7 +17,7 @@ func main() {
 
 	var projects []component.CarouselEntry
 	h := handler.Homehandler{Index: index, Entrys:  &projects}
-	app.GET("/", h.HandleUserShow)
+	app.GET("/", h.HandleShowHome)
 	app.POST("/carousel/next", handler.HtmxCarouselHandler{Index: &index,Direction:  1,Entrys:  &projects}.HandlerCarouselUpdate)
 	app.POST("/carousel/previous", handler.HtmxCarouselHandler{Index: &index, Direction:   -1, Entrys:  &projects}.HandlerCarouselUpdate)
 	app.Static("/static", "assets")
