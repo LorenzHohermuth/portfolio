@@ -1,6 +1,6 @@
-# Project 1
-![test](/static/test.jpg)
-Project one
+# Project Tux
+![test](https://upload.wikimedia.org/wikipedia/commons/a/af/Tux.png)
+Linux is the best
 
 # Project 2
 ![test](/static/test.jpg)
