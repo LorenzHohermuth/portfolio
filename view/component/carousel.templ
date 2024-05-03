@@ -25,12 +25,12 @@ templ Carousel(elm []CarouselEntry , index int) {
 					hx-trigger="click"
 					hx-target="#carousel-parent"
 					>
-					<img src={getEntry(elm, index - 1).ImgPath} class="h-28 w-52 rounded object-cover"/>
+					<img src={getEntry(elm, index - 1).ImgPath} class="h-28 w-52 rounded object-cover bg-neutral-800"/>
 				</button>
 			</div>
 
 			<div class="relative text-center z-20">
-				<img src={getEntry(elm, index).ImgPath} class="h-36 w-64 rounded object-cover"/>
+				<img src={getEntry(elm, index).ImgPath} class="h-36 w-64 rounded object-cover bg-neutral-800"/>
 				<div class="bg-gradient-to-t from-black/30 absolute bottom-0 left-0 h-36 w-64 rounded"></div>
 				<p class="absolute text-neutral-300 bottom-0.5 left-5">{getEntry(elm, index).Title}</p>
 			</div>
@@ -41,7 +41,7 @@ templ Carousel(elm []CarouselEntry , index int) {
 					hx-trigger="click"
 					hx-target="#carousel-parent"
 					>
-					<img src={getEntry(elm, index + 1).ImgPath} class="h-28 w-52 rounded object-cover"/>
+					<img src={getEntry(elm, index + 1).ImgPath} class="h-28 w-52 rounded object-cover bg-neutral-800"/>
 				</button>
 			</div>
 

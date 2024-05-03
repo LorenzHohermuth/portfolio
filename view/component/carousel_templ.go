@@ -51,7 +51,7 @@ func Carousel(elm []CarouselEntry, index int) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"h-28 w-52 rounded object-cover\"></button></div><div class=\"relative text-center z-20\"><img src=\"")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"h-28 w-52 rounded object-cover bg-neutral-800\"></button></div><div class=\"relative text-center z-20\"><img src=\"")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -64,7 +64,7 @@ func Carousel(elm []CarouselEntry, index int) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"h-36 w-64 rounded object-cover\"><div class=\"bg-gradient-to-t from-black/30 absolute bottom-0 left-0 h-36 w-64 rounded\"></div><p class=\"absolute text-neutral-300 bottom-0.5 left-5\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"h-36 w-64 rounded object-cover bg-neutral-800\"><div class=\"bg-gradient-to-t from-black/30 absolute bottom-0 left-0 h-36 w-64 rounded\"></div><p class=\"absolute text-neutral-300 bottom-0.5 left-5\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -90,7 +90,7 @@ func Carousel(elm []CarouselEntry, index int) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"h-28 w-52 rounded object-cover\"></button></div></div><p class=\"text-center font-thin\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"h-28 w-52 rounded object-cover bg-neutral-800\"></button></div></div><p class=\"text-center font-thin\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

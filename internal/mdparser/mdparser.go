@@ -2,7 +2,6 @@ package mdparser
 
 import (
 	"context"
-	"fmt"
 	"regexp"
 	"strings"
 
