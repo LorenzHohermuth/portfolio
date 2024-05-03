@@ -2,6 +2,7 @@ package mdparser
 
 import (
 	"context"
+	"fmt"
 	"regexp"
 	"strings"
 
@@ -60,7 +61,14 @@ func parseMd(line string, title *string, text *string, img *string) (bool, compo
 	
 	} else if char == "!" {
 		rgx := regexp.MustCompile(`\((.*?)\)`)
-		*img = rgx.FindStringSubmatch(line)[1]
+		mdImage := rgx.FindStringSubmatch(line)[1]
+		mdImage = strings.TrimSpace(mdImage)
+
+		if mdImage[:4] != "http" {
+			mdImage = strings.Replace(mdImage, "assets", "static", 1)
+		}
+
+		*img = mdImage
 
 	} else {
 		*text += line
