@@ -17,7 +17,7 @@ func getEntry(arr []CarouselEntry, index int) CarouselEntry {
 
 templ Carousel(elm []CarouselEntry , index int) {
 	<div id="carousel-parent">
-		<div class="flex items-center gap-x-13">
+		<div class="flex items-center gap-x-13 md:gap-x-28 lg:gap-x-52 2xl:gap-x-96 xl:text-lg">
 
 			<div class="relative z-10">
 				<button class="top-1/2 left-0 border-none bg-transparent p-0 absolute -translate-y-1/2 bg-black	"
@@ -25,13 +25,13 @@ templ Carousel(elm []CarouselEntry , index int) {
 					hx-trigger="click"
 					hx-target="#carousel-parent"
 					>
-					<img src={getEntry(elm, index - 1).ImgPath} class="h-28 w-52 rounded object-cover bg-neutral-800"/>
+					<img src={getEntry(elm, index - 1).ImgPath} class="h-28 w-56 md:h-40 md:w-80 xl:h-64 xl:w-156 rounded object-cover bg-neutral-800"/>
 				</button>
 			</div>
 
 			<div class="relative text-center z-20">
-				<img src={getEntry(elm, index).ImgPath} class="h-36 w-64 rounded object-cover bg-neutral-800"/>
-				<div class="bg-gradient-to-t from-black/30 absolute bottom-0 left-0 h-36 w-64 rounded"></div>
+				<img src={getEntry(elm, index).ImgPath} class="h-32 w-64 md:h-48 md:w-96 xl:h-82 xl:w-164 rounded object-cover bg-neutral-800"/>
+				<div class="bg-gradient-to-t from-black/30 absolute bottom-0 left-0 h-32 w-64 md:h-48 md:w-96 xl:h-82 xl:w-164 rounded"></div>
 				<p class="absolute text-neutral-300 bottom-0.5 left-5">{getEntry(elm, index).Title}</p>
 			</div>
 
@@ -41,7 +41,7 @@ templ Carousel(elm []CarouselEntry , index int) {
 					hx-trigger="click"
 					hx-target="#carousel-parent"
 					>
-					<img src={getEntry(elm, index + 1).ImgPath} class="h-28 w-52 rounded object-cover bg-neutral-800"/>
+					<img src={getEntry(elm, index + 1).ImgPath} class="h-28 w-56 md:h-40 md:w-80 xl:h-64 xl:w-156 rounded object-cover bg-neutral-800"/>
 				</button>
 			</div>
 
