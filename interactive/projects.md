@@ -1,4 +1,12 @@
 # Project Tux
+![](/assets/flower.jpeg)
+Linux is the best
+
+# Project Tux
+![](/assets/paris.jpg)
+hello paris
+
+# Project Tux
 ![](https://upload.wikimedia.org/wikipedia/commons/a/af/Tux.png)
 Linux is the best
 
